@@ -9,11 +9,12 @@
   <url>http://maven.apache.org</url>
   <dependencies>
     
-    <!--  <dependency>
+      <dependency>
   		<groupId>com.niit.BackEnd</groupId>
   		<artifactId>NIITBackend</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
-  	</dependency> -->
+  		<scope>compile</scope>
+  	</dependency> 
   
     <!--  <dependency>
       <groupId>junit</groupId>

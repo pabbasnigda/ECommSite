@@ -20,15 +20,16 @@ public class Product1DAOImpl implements Product1DAO {
 	{	
 		this.sessionFactory=sessionFactory;
 	}
+	
 	public boolean saveProduct1(Product1 product) 
 	{
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(product);
 		Transaction tx=session.beginTransaction();
 		tx.commit();
-	
 		return true;
 	}
+
 	
 }
 

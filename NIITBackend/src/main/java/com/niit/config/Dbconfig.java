@@ -24,10 +24,8 @@ import com.niit.model.Product1;
 @EnableTransactionManagement
 @Component
 
-public class Dbconfig  {
-	
-	
-     
+public class Dbconfig  
+{	     
 	 @Bean(name = "dataSource")
 		public DataSource getDataSource() {
 			DriverManagerDataSource dataSource = new DriverManagerDataSource();

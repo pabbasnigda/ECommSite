@@ -45,9 +45,10 @@ public class Product1Test
 	public void createProduct1()
 	{
 		Product1 product=new Product1();
-		product.setName("Dairy Milk");
-		product.setQuantity(3);
-		product.setPrice(250.12);
+		product.setName("Munch");
+		product.setQuantity(8);
+		product.setPrice(456.12);
+		product.setP_category("dark");
 		
 		boolean flag=productDAO.saveProduct1(product);
 		
