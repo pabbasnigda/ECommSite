@@ -1,5 +1,9 @@
 package com.niit.dao;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,9 +14,9 @@ import com.niit.model.Product1;
 
 
 @Repository
-public class Product1DAOImpl implements Product1DAO {
-	
-	
+public class Product1DAOImpl implements Product1DAO 
+{
+		
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -28,6 +32,32 @@ public class Product1DAOImpl implements Product1DAO {
 		Transaction tx=session.beginTransaction();
 		tx.commit();
 		return true;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Product1> getAllProducts() 
+	{
+		return sessionFactory.getCurrentSession().createQuery("from Product").list();
+	}
+
+	public void deleteProduct1(int id) 
+	{
+		sessionFactory.getCurrentSession().delete(id);
+		
+	}
+
+	@Transactional
+	public void addProduct(Product1 product) 
+	{
+		sessionFactory.getCurrentSession().save(product);
+		
+	}
+
+	public void editProduct(Product1 product) 
+	{
+		sessionFactory.getCurrentSession().update(product);
+		
 	}
 
 	
