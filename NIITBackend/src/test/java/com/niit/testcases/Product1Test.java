@@ -42,17 +42,13 @@ public class Product1Test
 	
 	}
 	@Test
-	public void createProduct1()
+	public void deleteProduct1()
 	{
-		Product1 product=new Product1();
-		product.setName("Munch");
-		product.setQuantity(8);
-		product.setPrice(456.12);
-		product.setP_category("dark");
+		productDAO.deleteProduct1(45);
 		
-		boolean flag=productDAO.saveProduct1(product);
+		//boolean flag=productDAO.deleteProduc1();
 		
-		assertEquals("createProductTestCase", true, flag);
+		//assertEquals("createProductTestCase", true, flag);
 		
 		
 	}

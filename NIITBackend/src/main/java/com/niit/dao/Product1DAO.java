@@ -15,6 +15,6 @@ public interface Product1DAO
 	
 	void addProduct(Product1 product);
 	
-	void editProduct(Product1 product);
+	
 	
 }
