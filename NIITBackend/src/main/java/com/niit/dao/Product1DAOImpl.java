@@ -34,20 +34,20 @@ public class Product1DAOImpl implements Product1DAO
 		return true;
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Product1> getAllProducts() 
 	{
 		
 		return sessionFactory.getCurrentSession().createQuery("from Product1").list();
-	}
+	}*/
 	
-	@Transactional
+	/*@Transactional
 	public void deleteProduct1(int id) 
 	{
 		sessionFactory.getCurrentSession().createQuery("DELETE FROM Product1 WHERE id = "+id).executeUpdate();
 		
-	}
+	}*/
 
 	@Transactional
 	public void addProduct(Product1 product) 
