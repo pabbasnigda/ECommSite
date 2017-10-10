@@ -50,10 +50,10 @@ public class Product1Test
 	public void createProduct1()
 	{
 		Product1 product = new Product1();
-		product.setName("Milkyway");
-		product.setQuantity(8);
+		product.setName("Silk");
+		product.setQuantity(9);
 		product.setP_category("Cadbury");
-		product.setPrice(678.67);
+		//product.setPrice(678.67);
 		boolean flag=productDAO.createProduct1(product);
 		assertEquals("createProductTestCase", true, flag);
 	}
@@ -63,11 +63,8 @@ public class Product1Test
 	public void updateProduct1()
 	{
 		Product1 product = new Product1();
-		product.setName("Snickers");
-		product.setP_category("Cadbury");
-		assertTrue(productDAO.updateProduct1(product));
-		//boolean flag=productDAO.updateProduct1(product);
-		//assertEquals("createProductTestCase", true, flag);
+		boolean flag=productDAO.updateProduct1(product);
+		assertEquals("createProductTestCase", true, flag);
 	}
 	
 	@Ignore
@@ -83,7 +80,7 @@ public class Product1Test
 		assertEquals("createProductTestCase", true, flag);
 	}
 	
-
+	
 	@Test
 	public void retrieveProduct1()
 	{

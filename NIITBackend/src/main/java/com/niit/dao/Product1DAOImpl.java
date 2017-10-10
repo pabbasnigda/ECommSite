@@ -52,8 +52,16 @@ public class Product1DAOImpl implements Product1DAO
 	@Transactional
 	public boolean updateProduct1(Product1 product) 
 	{
-		sessionFactory.getCurrentSession().saveOrUpdate(product);
-		return true;
+		 Session session = sessionFactory.openSession();
+		 Object o=session.load(Product1.class,new Integer(140));
+		 Product1 s=(Product1)o;
+		 
+		 Transaction tx = session.beginTransaction(); 
+		 s.setPrice(678.9);  // implicitly update method will be called.
+		 tx.commit();
+		 
+		 System.out.println("Object Updated successfully.....!!");
+		 return true;
 	}
 	
 	@Transactional
@@ -63,7 +71,7 @@ public class Product1DAOImpl implements Product1DAO
 		return true;	
 	}
 	
-	@SuppressWarnings({ "unused", "rawtypes" })
+	@SuppressWarnings( "rawtypes" )
 	@Transactional
 	public boolean getProduct(int id) 
 	{
@@ -72,10 +80,10 @@ public class Product1DAOImpl implements Product1DAO
 		Query qry = session.createQuery("from Product1 p");
 		List l=qry.getResultList();
 		
-		 System.out.println("Total Number Of Records : "+l.size());
-		 Iterator it = l.iterator();
+		System.out.println("Total Number Of Records : "+l.size());
+		Iterator it = l.iterator();
 		 
-		 while(it.hasNext())
+		while(it.hasNext())
 		 {
 			 Object o = (Object)it.next();
 			 Product1 p = (Product1)o;
@@ -85,9 +93,7 @@ public class Product1DAOImpl implements Product1DAO
 			 System.out.println("----------------------");
 		 } 
 
-		 return true;
+		return true;
 	}
-
-	
 }
 
