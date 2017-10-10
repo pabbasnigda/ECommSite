@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -26,11 +28,13 @@ public class Product1 implements Serializable
 	private double price;
 	private String p_category;
 	
-
+	public String getName() {
+		return name;
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public String getName() {
+	public String getName(String name) {
 		return name;
 	}
 	public void setName(String name) {

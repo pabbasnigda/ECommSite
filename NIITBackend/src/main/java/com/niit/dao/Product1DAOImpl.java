@@ -1,9 +1,10 @@
 package com.niit.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,12 +21,25 @@ public class Product1DAOImpl implements Product1DAO
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@Autowired
+	private Product1DAO productDAO;
+	
+	public Product1DAO getProductDAO() {
+		return productDAO;
+	}
+
+	public void setProductDAO(Product1DAO productDAO) {
+		this.productDAO = productDAO;
+	}
+
+	
 	public Product1DAOImpl(SessionFactory sessionFactory) 
 	{	
 		this.sessionFactory=sessionFactory;
 	}
 	
-	public boolean saveProduct1(Product1 product) 
+	@Transactional
+	public boolean createProduct1(Product1 product) 
 	{
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(product);
@@ -34,29 +48,45 @@ public class Product1DAOImpl implements Product1DAO
 		return true;
 	}
 	
-	/*@SuppressWarnings("unchecked")
-	@Transactional
-	public List<Product1> getAllProducts() 
-	{
-		
-		return sessionFactory.getCurrentSession().createQuery("from Product1").list();
-	}*/
 	
-	/*@Transactional
-	public void deleteProduct1(int id) 
-	{
-		sessionFactory.getCurrentSession().createQuery("DELETE FROM Product1 WHERE id = "+id).executeUpdate();
-		
-	}*/
-
 	@Transactional
-	public void addProduct(Product1 product) 
+	public boolean updateProduct1(Product1 product) 
 	{
 		sessionFactory.getCurrentSession().saveOrUpdate(product);
-		
+		return true;
 	}
 	
+	@Transactional
+	public boolean deleteProduct1(int id) 
+	{
+		sessionFactory.getCurrentSession().createQuery("DELETE FROM Product1 WHERE id = "+id).executeUpdate();
+		return true;	
+	}
 	
+	@SuppressWarnings({ "unused", "rawtypes" })
+	@Transactional
+	public boolean getProduct(int id) 
+	{
+		
+		Session session=sessionFactory.openSession();
+		Query qry = session.createQuery("from Product1 p");
+		List l=qry.getResultList();
+		
+		 System.out.println("Total Number Of Records : "+l.size());
+		 Iterator it = l.iterator();
+		 
+		 while(it.hasNext())
+		 {
+			 Object o = (Object)it.next();
+			 Product1 p = (Product1)o;
+			 System.out.println("Product id : "+p.getId());
+			 System.out.println("Product Name : "+p.getName());
+			 System.out.println("Product Price : "+p.getPrice());
+			 System.out.println("----------------------");
+		 } 
+
+		 return true;
+	}
 
 	
 }

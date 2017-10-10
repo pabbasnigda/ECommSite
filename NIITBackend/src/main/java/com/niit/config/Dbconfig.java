@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 import com.niit.dao.Product1DAO;
 import com.niit.dao.Product1DAOImpl;
 import com.niit.model.Product1;
@@ -54,6 +55,7 @@ public class Dbconfig
 			LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 			sessionBuilder.addProperties(getHibernateProperties());
 			sessionBuilder.addAnnotatedClass(Product1.class);
+			//sessionBuilder.addAnnotatedClass(Category.class);
 			sessionBuilder.scanPackages("com.niit");
 			System.out.println("Session");
 			
