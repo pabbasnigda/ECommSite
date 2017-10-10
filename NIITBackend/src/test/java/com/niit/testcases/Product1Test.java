@@ -80,7 +80,7 @@ public class Product1Test
 		assertEquals("createProductTestCase", true, flag);
 	}
 	
-	
+	@Ignore
 	@Test
 	public void retrieveProduct1()
 	{

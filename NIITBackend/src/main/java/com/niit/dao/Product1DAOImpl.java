@@ -57,7 +57,7 @@ public class Product1DAOImpl implements Product1DAO
 		 Product1 s=(Product1)o;
 		 
 		 Transaction tx = session.beginTransaction(); 
-		 s.setPrice(678.9);  // implicitly update method will be called.
+		 s.setQuantity(10);  // implicitly update method will be called.
 		 tx.commit();
 		 
 		 System.out.println("Object Updated successfully.....!!");
