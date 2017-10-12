@@ -50,10 +50,10 @@ public class Product1Test
 	public void createProduct1()
 	{
 		Product1 product = new Product1();
-		product.setName("Silk");
-		product.setQuantity(9);
-		product.setP_category("Cadbury");
-		//product.setPrice(678.67);
+		product.setName("MilkyBar");
+		product.setQuantity(8);
+		product.setP_category("Eclairs");
+		product.setPrice(567.78);
 		boolean flag=productDAO.createProduct1(product);
 		assertEquals("createProductTestCase", true, flag);
 	}
@@ -85,7 +85,7 @@ public class Product1Test
 	public void retrieveProduct1()
 	{
 		Product1 product=new Product1();
-		boolean listproduct=productDAO.getProduct(41);
+		boolean listproduct=productDAO.getProduct(146);
 		assertNotNull("problrm in getting product by id", product);
 	}
 

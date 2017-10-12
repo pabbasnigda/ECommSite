@@ -95,5 +95,12 @@ public class Product1DAOImpl implements Product1DAO
 
 		return true;
 	}
+	
+	@Transactional
+	public boolean addProduct1(Product1 product) 
+	{
+		sessionFactory.getCurrentSession().save(product);
+		return true;
+	}
 }
 

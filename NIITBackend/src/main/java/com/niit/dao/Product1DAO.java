@@ -11,7 +11,7 @@ public interface Product1DAO
 	
 	public boolean getProduct(int id);
 	
-	//public List<Product1> retrieveProduct1();
+	public boolean addProduct1(Product1 product);
 	
 	public boolean updateProduct1(Product1 product);
 	
