@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.model.Category;
-import com.niit.model.Product1;
+
 
 @Repository
 public class CategoryDAOImpl implements CategoryDAO
@@ -28,12 +28,13 @@ public class CategoryDAOImpl implements CategoryDAO
 		this.sessionFactory=sessionFactory;
 	} 
 	
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	public CategoryDAO getCategoryDAO() {
+		return categoryDAO;
 	}
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public void setCategoryDAO(CategoryDAO categoryDAO) {
+		this.categoryDAO = categoryDAO;
 	}
+	
 	
 	@Transactional  //for transaction management
 	public boolean saveCategory(Category category) 
@@ -52,6 +53,7 @@ public class CategoryDAOImpl implements CategoryDAO
 		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Transactional
 	public boolean getAllCategoryList() 
 	{
@@ -66,10 +68,10 @@ public class CategoryDAOImpl implements CategoryDAO
 		 {
 			 Object o = (Object)it.next();
 			 Category c=(Category)o;
-			 System.out.println("Product id : "+c.getCid());
-			 System.out.println("Product Name : "+c.getCatName());
-			 System.out.println("Product Price : "+c.getCatDescription());
-			 System.out.println("----------------------");
+			 System.out.println("Category id : "+c.getCid());
+			 System.out.println("Category Name : "+c.getCatName());
+			 System.out.println("Category Description : "+c.getCatDescription());
+			 System.out.println("-------------------");
 		 } 
 
 		return true;

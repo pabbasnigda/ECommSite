@@ -10,14 +10,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 
 import com.niit.config.Dbconfig;
-import com.niit.dao.Product1DAO;
 import com.niit.dao.SupplierDAO;
-import com.niit.model.Product1;
 import com.niit.model.Supplier;
 
 
-
-@SuppressWarnings("unused")
 @ComponentScan("com.niit")
 public class SupplierTest 
 {
@@ -41,18 +37,26 @@ public class SupplierTest
 	public void createSupplier()
 	{
 		Supplier supplier = new Supplier();
-		supplier.setSupName("Ayan dealers");
+		supplier.setSupName("Chocolate Hut");
 		boolean flag=supplierDAO.createSupplier(supplier);
-		assertEquals("createProductTestCase", true, flag);
+		assertEquals("createSupplierTestCase", true, flag);
 	}
 	
-	
+	@Ignore
 	@Test
 	public void updateSupplier()
 	{
 		Supplier supplier = new Supplier();
 		boolean flag=supplierDAO.updateSupplier(supplier);
-		assertEquals("createProductTestCase", true, flag);
+		assertEquals("createSupplierTestCase", true, flag);
+	}
+	
+	@Ignore
+	@Test
+	public void deleteSupplier()
+	{
+		boolean flag=supplierDAO.deleteSupplier(142);
+		assertEquals("createSupplierTestCase", true, flag);
 	}
 	
 }

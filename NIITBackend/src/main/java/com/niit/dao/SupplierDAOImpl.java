@@ -74,7 +74,7 @@ public class SupplierDAOImpl implements SupplierDAO
 		 {
 			 Object o = (Object)it.next();
 			 Supplier s = (Supplier)o;
-			 System.out.println("Product Name : "+s.getSupName());
+			 System.out.println("Supplier Name : "+s.getSupName());
 			 System.out.println("----------------------");
 		 } 
 		return true;

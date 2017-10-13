@@ -12,10 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.niit.config.Dbconfig;
 import com.niit.dao.CategoryDAO;
-import com.niit.dao.Product1DAO;
 import com.niit.model.Category;
-import com.niit.model.Product1;
-
 
 @SuppressWarnings("unused")
 @ComponentScan("com.niit")
@@ -41,8 +38,8 @@ public class CategoryTest
 	public void saveCategory()
 	{
 		Category category=new Category();
-		category.setCatName("Amul");
-		category.setCatDescription("some sweet with milky");
+		category.setCatName("Parle");
+		category.setCatDescription("sweet");
 		boolean flag=categoryDAO.saveCategory(category);
 		assertEquals("createCategoryTestCase", true, flag);
 	}

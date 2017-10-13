@@ -85,7 +85,7 @@ public class Product1Test
 	public void retrieveProduct1()
 	{
 		Product1 product=new Product1();
-		boolean listproduct=productDAO.getProduct(146);
+		boolean listproduct=productDAO.getProduct1(146);
 		assertNotNull("problrm in getting product by id", product);
 	}
 

@@ -73,7 +73,7 @@ public class Product1DAOImpl implements Product1DAO
 	
 	@SuppressWarnings( "rawtypes" )
 	@Transactional
-	public boolean getProduct(int id) 
+	public boolean getProduct1(int id) 
 	{
 		
 		Session session=sessionFactory.openSession();
