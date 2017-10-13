@@ -21,9 +21,12 @@ import com.niit.dao.Product1DAO;
 import com.niit.dao.Product1DAOImpl;
 import com.niit.dao.SupplierDAO;
 import com.niit.dao.SupplierDAOImpl;
+import com.niit.dao.UserDAO;
+import com.niit.dao.UserDetailsDAOImpl;
 import com.niit.model.Category;
 import com.niit.model.Product1;
 import com.niit.model.Supplier;
+import com.niit.model.UserDetails;
 
 @Configuration
 @ComponentScan("com.niit")
@@ -62,6 +65,7 @@ public class Dbconfig
 			sessionBuilder.addAnnotatedClass(Product1.class);
 			sessionBuilder.addAnnotatedClass(Supplier.class);
 			sessionBuilder.addAnnotatedClass(Category.class);
+			sessionBuilder.addAnnotatedClass(UserDetails.class);
 			sessionBuilder.scanPackages("com.niit");
 			System.out.println("Session");
 			
@@ -94,6 +98,13 @@ public class Dbconfig
 	@Bean(name = "categoryDAO")
 	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory){
 		return new CategoryDAOImpl(sessionFactory);
+	}
+	
+	@Autowired
+	@Bean(name = "userDAO")
+	public UserDAO getUserDAO(SessionFactory sessionFactory)
+	{
+		return new UserDetailsDAOImpl(sessionFactory);
 	}
 }
 
