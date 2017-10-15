@@ -36,7 +36,6 @@ import com.niit.model.UserDetails;
 @ComponentScan("com.niit")
 @EnableTransactionManagement
 @Component
-
 public class Dbconfig  
 {	     
 	 @Bean(name = "dataSource")
