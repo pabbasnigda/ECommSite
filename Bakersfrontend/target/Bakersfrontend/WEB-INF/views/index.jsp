@@ -19,8 +19,6 @@
 </style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/> 
-	<jsp:include page="footer.jsp"/>
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -71,20 +69,6 @@
         </div>
     </nav>
 </div>
-<c:choose>
-		<c:when test="${ProductPageClicked}">
-			<c:import url="/WEB-INF/views/ProductPage.jsp"></c:import>
-		</c:when>
-	</c:choose>
-	<c:choose>
-		<c:when test="${CategoryPageClicked}">
-			<c:import url="/WEB-INF/views/CategoryPage.jsp"></c:import>
-		</c:when>
-	</c:choose>
-	<c:choose>
-		<c:when test="${SupplierPageClicked}">
-			<c:import url="/WEB-INF/views/SupplierPage.jsp"></c:import>
-		</c:when>
-	</c:choose>
+
 </body>
-</html>                                		
+</html>                               
