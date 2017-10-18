@@ -20,24 +20,22 @@ public class Supplier implements Serializable
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int SupId;
-	private String SupName;
-
-public int getSupId() {
-	return SupId;
-}
-public void setSupId(int supId) {
-	SupId = supId;
-}
-public String getSupName() {
-	return SupName;
-}
-public void setSupName(String supName) {
-	SupName = supName;
-}
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
-	
+	private int supplier_id;
+	private String supplier_Name;
+	public int getSupplier_id() {
+		return supplier_id;
+	}
+	public void setSupplier_id(int supplier_id) {
+		this.supplier_id = supplier_id;
+	}
+	public String getSupplier_Name() {
+		return supplier_Name;
+	}
+	public void setSupplier_Name(String supplier_Name) {
+		this.supplier_Name = supplier_Name;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }
 
