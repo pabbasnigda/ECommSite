@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Supplier Page</title>
+<title>Category Page</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,9 +24,11 @@
 				<h5>
 				<strong>
 			     <c:choose>
-			     	<c:when test="${supplier.supplier_id==0}">  Add New Item </c:when>
-			     	<c:when test="${!empty supplier.supplier_id}">Update Supplier for Id: <c:out value="${supplier.supplier_id}"/></c:when>
+			     		<c:when test="${supplier.supplier_id==0}">  Add New Supplier </c:when>
+			     
+			     <c:when test="${!empty supplier.supplier_id}">Update Supplier for Id: <c:out value="${supplier.supplier_id}"/></c:when>
 			     </c:choose>
+			     
 			     </strong>
 			     </h5>
 			    		     
@@ -39,12 +41,12 @@
 				</div>
 				<br/>
 				<div class="form-group row">
-					<label for="supplier_Name" class="col-xs-4 control-label">Supplier Name</label>
+					<label for="Supplier_Name" class="col-xs-4 control-label">Supplier Name</label>
 					<div class="col-xs-4">
 						<form:input name="supplierName" path="supplier_Name" placeholder="Supplier Name" class="form-control" />
 					</div>
 				</div>
-		
+				
 				<br/>
 				<div class="form-group row">
 					<label for="code" class="col-xs-4 control-label"></label>
@@ -57,8 +59,8 @@
 						
 						</c:if> <c:if test="${supplier.supplier_id!=0}">
 						
-					   	<input type="submit" value="Update Supplier" id="btn-update" class="btn btn-primary" >
-					  	</c:if>
+					   <input type="submit" value="Update Supplier" id="btn-update" class="btn btn-primary" >
+					  </c:if>
 						
 						
 						</div>
@@ -70,13 +72,13 @@
 			<thead>
 			<tr>
 				<th>S. No.</th>
-				<th>Supplier Id</th>
+				<th>SupplierI d</th>
 				<th>Supplier Name</th>
 				<th>Supplier Action</th>
 			</tr>	
 			</thead>
 			<tbody>
-			   <c:forEach items="${suppplierList}" var="supplier" varStatus="loopCounter">
+			   <c:forEach items="${supplierList}" var="supplier" varStatus="loopCounter">
 			   		<tr>
 			   			<td><c:out value="${loopCounter.count}"></c:out></td>
 			   			<td><c:out value="${supplier.supplier_id}"></c:out></td>

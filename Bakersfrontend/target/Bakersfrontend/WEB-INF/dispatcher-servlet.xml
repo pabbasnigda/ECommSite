@@ -11,6 +11,7 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 <!-- to scan the packages in backend & frontend-->
 
+<context:component-scan base-package="com.frontend.controller"/>
 <context:component-scan base-package="com.niit.*"/>
 <mvc:annotation-driven/>
 <context:annotation-config/>
