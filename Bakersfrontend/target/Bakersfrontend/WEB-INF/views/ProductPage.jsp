@@ -18,7 +18,7 @@
 
 
 <div class="container">
-	      <form:form commandName="product" method="post" action="addProduct">
+	      <form:form commandName="product" method="post" action="addProduct" enctype="multipart/form-data">
 				<p><font color="red">${errorMessage}</font></p>		
 
 <h3 align="center">
@@ -73,14 +73,14 @@
 	</div>
 	
 
-<%-- 
+ 
 	<div class="form-group">
 		<label for="Product Price" class="col-xs-4 control-label">Product instock</label>
 		<div class="col-xs-4">
 			<form:input name="id" path="instock" placeholder="Product instock" class="form-control" />
 		</div>
 	</div>
- --%>
+ 
 	<!-- 	List of Category	 -->
 
 	
@@ -108,6 +108,12 @@
 		</div>
 	</div>
 	
+	<div class="form-group">
+		<label for="Product Image" class="col-xs-4 control-label">Product Image</label>
+		<div class="col-xs-4">
+		<input type="file" name="file" class="form-control" />
+		</div>
+	</div>
 
 
 
@@ -142,7 +148,9 @@
 					<th width="2%">Product InStock</th>
 					<th width="2%">Product Category</th>
 					<th width="2%">Product Supplier</th>
+					<th width="2%">Product Image</th>
 					<th width="2%">Product Action</th>
+				
 				</tr>
 			</thead>
 			<tbody>
@@ -156,7 +164,7 @@
 						<td><c:out value="${product.instock}" /></td>
 						<td><c:out value="${product.category_id}" /></td>
 						<td><c:out value="${product.supplier_id}" /></td>
-						
+						<td><c:out value="${product.image}" /></td>
 						<td><nobr>
 <a class="btn btn-primary" href="editproduct/${product.id}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</a>
 
