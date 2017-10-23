@@ -2,7 +2,7 @@ package com.niit.dao;
 
 import java.util.List;
 
-import javax.persistence.Query;
+import org.hibernate.Query;
 import javax.transaction.Transactional;
 
 //import org.hibernate.Session;
@@ -51,7 +51,7 @@ public class ProductDAOImpl implements ProductDAO
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")
-		List<Product> listProduct = (List<Product>) ((ProductDAOImpl) query).list();
+		List<Product> listProduct = (List<Product>) query.list();
 
 		if (listProduct != null && !listProduct.isEmpty()) {
 			return listProduct.get(0);
@@ -79,14 +79,15 @@ public class ProductDAOImpl implements ProductDAO
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		
-		List<Product> listProduct = (List<Product>) ((ProductDAOImpl) query).list();
+		List<Product> listProduct = (List<Product>) query.list();
 
 		if (listProduct != null && !listProduct.isEmpty()) {
 			return (List<Product>) listProduct.get(0);
 		}
+
+
 		return null;
 	}
-	
 	
 	@Transactional
 	public List<Product> getProductByCategoryID(int category_id) 

@@ -48,6 +48,7 @@ public class UserDAOImpl implements UserDAO
 		
 	}
 
+	@Transactional
 	public User get(String email) {
 	
 		Criteria c = sessionFactory.getCurrentSession().createCriteria(User.class);
