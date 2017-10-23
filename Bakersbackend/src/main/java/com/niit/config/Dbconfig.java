@@ -29,7 +29,7 @@ import com.niit.model.Cart;
 import com.niit.model.Category;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
-import com.niit.model.UserDetails;
+import com.niit.model.User;
 
 
 
@@ -67,7 +67,7 @@ public class Dbconfig {
 			sessionBuilder.addProperties(getHibernateProperties());
 			sessionBuilder.addAnnotatedClass(Product.class);
 			sessionBuilder.addAnnotatedClass(Category.class);
-			sessionBuilder.addAnnotatedClasses(UserDetails.class);
+			sessionBuilder.addAnnotatedClasses(User.class);
 			sessionBuilder.addAnnotatedClass(Supplier.class);
 			sessionBuilder.addAnnotatedClass(Cart.class);
 			sessionBuilder.scanPackages("com.niit");
@@ -112,7 +112,7 @@ public class Dbconfig {
 	}
 	
 	@Autowired
-	@Bean(name = "cartDAO")
+	@Bean(name = "userDAO")
 	public UserDAO getUserDAO(SessionFactory sessionFactory)
 	{
 		return new UserDAOImpl(sessionFactory);

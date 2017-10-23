@@ -1,20 +1,16 @@
 package com.niit.dao;
 
-import com.niit.model.UserDetails;
+import java.util.List;
+
+import com.niit.model.User;
+
 
 public interface UserDAO 
-{
-	public boolean saveUserDetails(UserDetails user);
-	public boolean updateUserDetails(int Uid);
-	public boolean deleteUserDetails(int Uid);
-	public boolean getAllUserDetails();
-	
-	
-	public UserDetails getUserDetails(String email);
-	public UserDetails getUById(int customerId);
-	public boolean vaildate(String user, String password);
-	public UserDetails getCustomerByUsername(String username);
-	public UserDetails get(String name);
-
-	public Object getAll();
+{	
+	  public boolean saveOrUpdate(User user);
+	  public List<User> list();
+	  public User getUserById(int user_id);
+	  public void removeUserById(int user_id);
+	  
+	  public User get(String email);
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
+//import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,8 +15,7 @@ import com.niit.model.Product;
 @Repository
 public class ProductDAOImpl implements ProductDAO
 {
-	@Autowired
-	private ProductDAO productDAO;
+	
 	@Autowired
 	SessionFactory sessionFactory;
 	
@@ -71,7 +70,7 @@ public class ProductDAOImpl implements ProductDAO
 		return ProductToDelete;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Transactional
 	public List<Product> getProductByCategory(int category_id) 
 	{
@@ -88,7 +87,7 @@ public class ProductDAOImpl implements ProductDAO
 		return null;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	
 	@Transactional
 	public List<Product> getProductByCategoryID(int category_id) 
 	{
@@ -98,10 +97,12 @@ public class ProductDAOImpl implements ProductDAO
 		return catproducts;
 	}
 
+
 	@Transactional
 	public List<Product> homeList() 
 	{
-		String hql="from Product ORDER BY RAND()";
+		// TODO Auto-generated method stub
+	/*	String hql="from Product ORDER BY RAND()";
 		@SuppressWarnings("rawtypes")
 		Query query=sessionFactory.getCurrentSession().createQuery(hql).setMaxResults(6);
 		@SuppressWarnings("unchecked")
@@ -109,6 +110,14 @@ public class ProductDAOImpl implements ProductDAO
 		if (listProduct != null && !listProduct.isEmpty()) {
 			return listProduct;
 		}
+		*/
 		return null;
+	}
+	
+	@Transactional
+	public Product getItem(int id) 
+	{
+		Product product=sessionFactory.getCurrentSession().get(Product.class, id);
+		return product;
 	}	
 }

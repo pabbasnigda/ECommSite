@@ -1,9 +1,9 @@
 com\niit\dao\SupplierDAO.class
 com\niit\dao\ProductDAOImpl.class
 com\niit\dao\UserDAO.class
+com\niit\model\User.class
 com\niit\model\Product.class
 com\niit\model\Supplier.class
-com\niit\model\UserDetails.class
 com\niit\config\Dbconfig.class
 com\niit\dao\CartDAOImpl.class
 com\niit\dao\SupplierDAOImpl.class

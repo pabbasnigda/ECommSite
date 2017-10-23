@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
-import org.springframework.web.multipart.MultipartFile;
+import javax.persistence.Lob;
+
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -25,8 +25,8 @@ public class Product implements Serializable
 	private int supplier_id;
 	private int category_id;
 	private boolean instock;
-	@Transient
-	private MultipartFile image;
+	@Lob
+	private byte[] image;
 	
 	public int getId() {
 		return id;
@@ -76,15 +76,12 @@ public class Product implements Serializable
 	public void setInstock(boolean instock) {
 		this.instock = instock;
 	}
-	
-	public MultipartFile getImage() {
+	public byte[] getImage() {
 		return image;
 	}
-	public void setImage(MultipartFile image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
 	
 }
