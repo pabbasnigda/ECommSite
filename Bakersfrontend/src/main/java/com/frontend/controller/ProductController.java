@@ -55,56 +55,6 @@ public class ProductController
 		       return "ProductPage";
 		 }
 		     
-/*		 @RequestMapping(value="/saveProduct")
-			public String updateproduct(@ModelAttribute("product") Product product,HttpServletRequest request,Model m,
-					@RequestParam("file") MultipartFile file){
-				
-				String image=uploadFile(file);
-				//log.info("Server File Location="	+ image
-				if(!image.isEmpty())
-				{
-					product.setImage(image);
-					
-				}
-					product.setInstock(true);
-					  productDAO.saveProduct(product);
-				
-				
-		        return "redirect:/product";
-			}
-*/			
-			
-			
-			
-			/*
-			public  String uploadFile(MultipartFile file)
-			{
-				String name=null;
-				if (!file.isEmpty()) {
-					try {
-						byte[] bytes = file.getBytes();
-						// Creating the directory to store file
-						String rootPath = System.getProperty("catalina.base");
-						File dir = new File(rootPath +"This PC/Desktop");
-						if (!dir.exists())
-							dir.mkdirs();
-						  name=String.valueOf(new Date().getTime()+".jpg");
-						 // Create the file on server
-						File serverFile = new File(rootPath + File.separator);
-						BufferedOutputStream stream = new BufferedOutputStream(
-								new FileOutputStream(serverFile));
-						stream.write(bytes);
-						stream.close();
-					//	log.info("Server File Location="	+ serverFile.getAbsolutePath());
-						return  name;
-					} catch (Exception e) {
-						return "You failed to upload " + name + " => " + e.getMessage();
-					}
-				} else {
-					return "You failed to upload " + name+ " because the file was empty.";
-				}
-			}
-*/		   
 
 
 
@@ -122,7 +72,7 @@ public class ProductController
 			public String editProduct(@PathVariable("id") int id, Model model,RedirectAttributes attributes) {
 				System.out.println("editProduct");
 				attributes.addFlashAttribute("product", this.productDAO.getProductById(id));
-				return "redirect:/category";
+				return "redirect:/product";
 			}
 			@RequestMapping(value ="removeproduct/{id}")
 			public String removeProduct(@PathVariable("id") int id,RedirectAttributes attributes) throws Exception {
