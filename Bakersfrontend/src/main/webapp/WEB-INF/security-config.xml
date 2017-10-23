@@ -29,7 +29,8 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 		<security:intercept-url pattern="/savesupplier/**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/editsupplier/**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/removesupplier/**" access="hasRole('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/addToCart/**" access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/addtoCart/**" access="hasRole('ROLE_USER')" />
+		
 <!-- 
 		<security:intercept-url pattern="/addtoCart/**" access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/viewcart/**" access="hasRole('ROLE_USER')" />
@@ -39,7 +40,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 		<security:intercept-url pattern="/placeorder/**" access="hasRole('ROLE_USER')" />
 		 -->
 
-<security:intercept-url pattern="/Admin/**" access="hasRole('ROLE_ADMIN')"/>
+<security:intercept-url pattern="/LoginPage/**" access="hasRole('ROLE_ADMIN')"/>
 
 	<security:form-login login-page="/login" 
      authentication-failure-url="/login?error" 
@@ -51,9 +52,9 @@ http://www.springframework.org/schema/security/spring-security.xsd">
     
      <security:logout logout-success-url="/login?logout"  logout-url="/j_spring_security_logout"/>
           <security:csrf disabled="true" />    
-     </security:http>
+     </security:http> 
 
-    
+     
     <security:authentication-manager>
     <security:authentication-provider>
      

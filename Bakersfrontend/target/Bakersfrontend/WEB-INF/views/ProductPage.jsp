@@ -145,6 +145,7 @@
 					<th width="2%">product Name</th>
 					<th width="2%">product Description</th>
 					<th width="2%">Product Price</th>
+					<th width="2%">Product Quantity</th>
 					<th width="2%">Product InStock</th>
 					<th width="2%">Product Category</th>
 					<th width="2%">Product Supplier</th>
@@ -161,6 +162,7 @@
 						<td><c:out value="${product.name}" /></td>
 						<td><c:out value="${product.description}" /></td>
 						<td><c:out value="${product.price}" /></td>
+						<td><c:out value="${product.quantity}" /></td>
 						<td><c:out value="${product.instock}" /></td>
 						<td><c:out value="${product.category_id}" /></td>
 						<td><c:out value="${product.supplier_id}" /></td>
