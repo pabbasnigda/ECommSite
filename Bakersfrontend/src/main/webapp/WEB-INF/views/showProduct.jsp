@@ -28,7 +28,7 @@ width:100%;
     background-attachment: fixed">
 	<div class="container">
 		<c:forEach items="${ProductList}" var="product">
-			<h2 style="color: red">
+			<h2 style="color: blue">
 				<c:out value="${product.name }" />
 			</h2>
 
@@ -38,7 +38,7 @@ width:100%;
 					<img height="300px" width="300px" alt="${product.id}"
 						src="<c:url value="/resources/images/${product.id}.jpg"></c:url>">
 					<div class="desc">
-							<strong>${product.name}</strong>
+							<%-- <strong>${product.name}</strong> --%>
 
 					</div>
 				</div>

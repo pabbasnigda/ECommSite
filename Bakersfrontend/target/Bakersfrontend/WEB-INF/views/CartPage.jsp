@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -9,11 +9,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Example of Bootstrap 3 Dropdowns within a Navbar</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css">
+<title>Cart Page</title>
+<link rel="stylesheet" href="resources/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
 	.bs-example{
     	margin: 20px;
     }
@@ -23,7 +25,9 @@
 </head>
 <body>
 
-<div class="container">
+	<jsp:include page="header.jsp" /> 
+	
+	<div class="container">
     <div class="row">
           <div class="col-sm-12 col-md-10 col-md-offset-1">
             <table class="table table-hover">
@@ -44,7 +48,7 @@
                      
                         <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
-                         <a class="thumbnail pull-left" href="#"> <img src="/NIITFrontend/myImage/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a>
+                         <a class="thumbnail pull-left" href="#"> <img src="/Bakersfrontend/myImage/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a> -->
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
@@ -110,8 +114,7 @@
         </div>
     </div>
 </div>
-
-
 </body>
+<jsp:include page="footer.jsp" /> 
 
-</html>
+</html>	

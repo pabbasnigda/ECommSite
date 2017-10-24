@@ -70,12 +70,12 @@ ${ExistingMessage}
                     <li><a href="#">Home</a></li>
                     <li><a href="viewcart">Cart</a></li>
                </ul>     
-            </div>
+            </div><!-- /.navbar-collapse -->
         </div>
     </nav>
 </div>
 <!-- =================================-->
-<
+
 <div class="container">
 		<c:forEach items="${ProductList}" var="product">
 			<h2 style="color: red">
@@ -84,8 +84,8 @@ ${ExistingMessage}
 
 
 			<div class="pi-img-wrapper">
-										<img src="/Shoppingcart/myImage/imageDisplay?id=${product.id}"
-											class="img-responsive" style="width: 180px; height: 250px">
+										<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"
+											class="img-responsive" style="width: 80px; height: 100px">
 										<div>				</div>
 			</div>
 
