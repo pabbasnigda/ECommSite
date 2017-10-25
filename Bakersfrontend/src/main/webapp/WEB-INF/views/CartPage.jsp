@@ -24,8 +24,40 @@
 
 </head>
 <body>
-
-	<jsp:include page="header.jsp" /> 
+<div class="bs-example">
+    <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">CHOCOHUB</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PROFILE</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Inbox</a></li>
+                            <li><a href="#">Drafts</a></li>
+                            <li><a href="#">Sent Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Trash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+               
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</div>
 	
 	<div class="container">
     <div class="row">
@@ -115,6 +147,7 @@
     </div>
 </div>
 </body>
+<br><br>
 <jsp:include page="footer.jsp" /> 
 
 </html>	

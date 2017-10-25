@@ -10,9 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Index Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
+
 	.bs-example{
     	margin: 20px;
     }
@@ -33,15 +35,15 @@ ${ExistingMessage}
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">CHOCOHUB</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PROFILE</a></li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="">Inbox</a></li>
                             <li><a href="#">Drafts</a></li>
@@ -53,23 +55,14 @@ ${ExistingMessage}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Sign Up <b class="caret"></b></a>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">SignUp <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="login">Login action</a></li>
                             <li><a href="register">Registration action</a></li>
-                            <li class="divider"></li>
-                            <!-- <li><a href="logout">Logout</a></li> -->
-                         
-                              <li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
-                            
-                          
+                             
                         </ul>
                     </li>
-                </ul>
-                 <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="viewcart">Cart</a></li>
-               </ul>     
+                </ul>     
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
@@ -78,15 +71,16 @@ ${ExistingMessage}
 
 <div class="container">
 		<c:forEach items="${ProductList}" var="product">
-			<h2 style="color: red">
+			<h2 style="color: blue">
 				<c:out value="${product.name }" />
 			</h2>
 
 
 			<div class="pi-img-wrapper">
-										<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"
-											class="img-responsive" style="width: 80px; height: 100px">
-										<div>				</div>
+				<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"class="rounded float-left"
+							class="img-responsive" style="width: 200px; height:120px">
+										<!--  <img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"-->		
+										<!-- <div>				</div>-->
 			</div>
 
 			<div class="col-xs-4 ">
@@ -107,11 +101,9 @@ ${ExistingMessage}
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
-
-                								<form action="addtoCart/${product.id}">
-										<input type="submit" value="Add to Cart" class="btn btn-primary" >
-
-									</form>
+							<form action="addtoCart/${product.id}">
+								<input type="submit" value="Add to Cart" class="btn btn-primary" >
+							</form>
 							
 
 						</div>
@@ -120,6 +112,7 @@ ${ExistingMessage}
 				</div>
 			</div>
 		</c:forEach>
-	</div> 
+	</div><br/><br/><br/><br/>
+	<jsp:include page="footer.jsp"></jsp:include> 
 </body>
 </html> 

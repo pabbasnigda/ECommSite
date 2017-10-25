@@ -29,6 +29,7 @@ public class CartController
 	
 	@Autowired
 	ProductDAO productDAO;
+	
 	@Autowired
 	UserDAO userDAO;
 	
@@ -38,23 +39,18 @@ public class CartController
 	User user;
 		
 	 @RequestMapping(value="addtoCart/{id}")
-	    public String addProductToCart(@PathVariable("id") int id,HttpSession session,Model model,RedirectAttributes attributes)
+	 public String addProductToCart(@PathVariable("id") int id,HttpSession session,Model model,RedirectAttributes attributes)
+	 {
+	    String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		User user = userDAO.get(email);
+		//int userId = (int) session.getAttribute("userid");	
+		userId=user.getId();
+	    System.out.println(userId);
+	    int q=1;
+	    if (cartDAO.getitem(id, userId) != null) 
 	    {
-	    	String email = SecurityContextHolder.getContext().getAuthentication().getName();
-			
-			User user = userDAO.get(email);
-			
-	    	
-	    	//int userId = (int) session.getAttribute("userid");	
-	    	 userId=user.getId();
-	    	System.out.println(userId);
-	    	
-	    	int q=1;
-	    	if (cartDAO.getitem(id, userId) != null) {
-				Cart item = cartDAO.getitem(id, userId);
-				
+				Cart item = cartDAO.getitem(id, userId);		
 				item.setProductQuantity(item.getProductQuantity() + q);
-				
 				Product p = productDAO.getProductById(id);
 				System.out.println(item);
 				item.setProductPrice(p.getPrice());
@@ -62,8 +58,10 @@ public class CartController
 				cartDAO.saveProductToCart(item);
 				attributes.addFlashAttribute("ExistingMessage",  p.getName() +"is already exist");
 		
-				return "redirect:/";
-			} else {
+				return "CartPage";
+		 } 
+	    else 
+	    {
 				Cart item = new Cart();
 				Product p = productDAO.getProductById(id);
 				item.setProductid(p.getId());
@@ -76,18 +74,13 @@ public class CartController
 				cartDAO.saveProductToCart(item);
 				attributes.addFlashAttribute("SuccessMessage", "Item"+p.getName()+" has been deleted Successfully");
 				return "redirect:/";
-			}
-	    	
 	    }
-
-
-
-
-	    @RequestMapping("viewcart")
-		public String viewCart(Model model, HttpSession session) {
-	    
 	    	
+	 }
 
+	 @RequestMapping("viewcart")
+	 public String viewCart(Model model, HttpSession session) 
+	 {
 	    	String email = SecurityContextHolder.getContext().getAuthentication().getName();
 			
 			User user = userDAO.get(email);
@@ -151,7 +144,7 @@ public class CartController
 
 		return "redirect:/viewcart";
 	}
-
+	
 
 	@RequestMapping("continue_shopping")
 	public String continueshopping()
