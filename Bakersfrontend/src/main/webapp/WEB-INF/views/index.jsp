@@ -79,21 +79,20 @@ ${ExistingMessage}
 <!-- =================================-->
 
 <div class="container">
+		
+			<div class="row">
+		
 		<c:forEach items="${ProductList}" var="product">
 			<h2 style="color: blue">
 				<c:out value="${product.name }" />
 			</h2>
 
-
-			<div class="row">
-			
+		
 				<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"class="rounded float-left"
 							class="img-responsive" style="width: 200px; height:120px">
 										<!--  <img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"-->		
 										<!-- <div>				</div>-->
 			</div>
-
-			<div class="row">
 				<div class="img">
 					<div class="desc">
 						<p>
@@ -119,9 +118,9 @@ ${ExistingMessage}
 						</div>
 
 					</div>
-				</div>
+				</div></c:forEach>
 			</div>
-		</c:forEach>
+		
 	</div><br/><br/><br/><br/>
 	<jsp:include page="footer.jsp"></jsp:include> 
 </body>

@@ -81,16 +81,10 @@
 	<div class="form-group">
 		<label for="code" class="col-xs-4 control-label">Password</label>
 		<div class="col-xs-4">
-			<input name="j_password"  type="password" placeholder="User Password" class="form-control" />
+			<form:input name="password"  path="password" placeholder="User Password" class="form-control" />
 		</div>
 	</div>
 	
-	<div class="form-group">
-		<label for="code" class="col-xs-4 control-label">Confirm Password</label>
-		<div class="col-xs-4">
-			<input name="j_password"  type="password" placeholder="Confirm Password" class="form-control" />
-		</div>
-	</div>
 	
 	<div class="form-group">
 		<label for="code" class="col-xs-4 control-label">Phone Number</label>

@@ -78,28 +78,28 @@ ${ExistingMessage}
 			</h2>
 
 
-			<div class="pi-img-wrapper">
+			<div class="row">
 				<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"class="rounded float-left"
 							class="img-responsive" style="width: 200px; height:120px">
 										<!--  <img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"-->		
 										<!-- <div>				</div>-->
 			</div>
 
-			<div class="col-xs-4 ">
+			<div class="row">
 				<div class="img">
 					<div class="desc">
 						<p>
 						<div class="form-group">
-							<input type="text" class="form-control" value="${product.name}"
+							<input type="text" style="width: 400px;" class="form-control" value="${product.name}"
 								readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<input type="text" class="form-control"
+							<input type="text" style="width: 400px;" class="form-control"
 								value="Rs. ${product.price}" readonly="readonly">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control"
+							<input type="text" style="width: 400px;" class="form-control"
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>

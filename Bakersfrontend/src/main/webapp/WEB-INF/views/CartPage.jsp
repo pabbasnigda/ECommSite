@@ -42,16 +42,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#">HOME</a></li>
                     <li><a href="#">PROFILE</a></li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Inbox</a></li>
-                            <li><a href="#">Drafts</a></li>
-                            <li><a href="#">Sent Items</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Trash</a></li>
-                        </ul>
-                    </li>
+                    
                 </ul>
                
             </div><!-- /.navbar-collapse -->
@@ -137,9 +128,9 @@
                         
                         </td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <a href="checkout" class="btn btn-success">
+                             <span class="glyphicon glyphicon-play"></span> Checkout
+                        </a></td>
                     </tr>
                 </tbody>
             </table>

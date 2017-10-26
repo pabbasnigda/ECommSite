@@ -127,30 +127,21 @@ public class CartController
 		}
 	    
 	    
-	    
-	    
-	@RequestMapping(value="removeCart/{id}")
-	public String deleteorder(@PathVariable("id") int id, HttpSession session) {
-
-		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		
-		User user = userDAO.get(email);
-		
-		
-		 userId = user.getId();
-
-		cartDAO.removeCartById(id);
-		session.setAttribute("cartsize",  cartDAO.cartsize(userId));
-
-		return "redirect:/viewcart";
-	}
+	    @RequestMapping(value="removeCart/{id}")
+		public String deleteorder(@PathVariable("id") int id, HttpSession session) 
+		{
+			cartDAO.removeCartById(id);
+			session.setAttribute("cartsize", cartDAO.cartsize((Integer) session.getAttribute("userid")));
+			return "redirect:/viewcart";
+		}
 	
 
-	@RequestMapping("continue_shopping")
-	public String continueshopping()
-	{
-	return "redirect:/";	
+	    @RequestMapping("continue_shopping")
+	    public String continueshopping()
+	    {
+	    	return "loggedin";	
 
-	}
-
+	    }
+	    
+	    
 }

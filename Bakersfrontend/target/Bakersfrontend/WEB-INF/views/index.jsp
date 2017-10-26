@@ -35,13 +35,20 @@ ${ExistingMessage}
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                
+                
                 <a class="navbar-brand" href="#">CHOCOHUB</a>
+          		
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="#">HOME</a></li>
-                    <li><a href="#">PROFILE</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">PROFILE<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">show profile</a></li>
+                    	</ul></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -55,12 +62,14 @@ ${ExistingMessage}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">SignUp <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="login">Login action</a></li>
-                            <li><a href="register">Registration action</a></li>
-                             
-                        </ul>
+                    	<li><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user"></span> Sign Up<b class="caret"></b></a>
+                     
+                        	<ul class="dropdown-menu">
+                            	<li><a href="login">Login action</a></li>
+                            	<li><a href="register">Registration action</a></li>
+         
+                        	</ul>
+                    	</li>
                     </li>
                 </ul>     
             </div><!-- /.navbar-collapse -->
@@ -76,28 +85,29 @@ ${ExistingMessage}
 			</h2>
 
 
-			<div class="pi-img-wrapper">
+			<div class="row">
+			
 				<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"class="rounded float-left"
 							class="img-responsive" style="width: 200px; height:120px">
 										<!--  <img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"-->		
 										<!-- <div>				</div>-->
 			</div>
 
-			<div class="col-xs-4 ">
+			<div class="row">
 				<div class="img">
 					<div class="desc">
 						<p>
 						<div class="form-group">
-							<input type="text" class="form-control" value="${product.name}"
+							<input type="text"  style="width: 400px;" class="form-control" value="${product.name}"
 								readonly="readonly">
 						</div>
 
 						<div class="form-group">
-							<input type="text" class="form-control"
+							<input type="text" style="width: 400px;" class="form-control"
 								value="Rs. ${product.price}" readonly="readonly">
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control"
+							<input type="text"style="width: 400px;" class="form-control"
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
