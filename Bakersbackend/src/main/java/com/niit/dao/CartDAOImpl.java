@@ -37,8 +37,8 @@ public class CartDAOImpl implements CartDAO
 	}
 
 	@Transactional
-	public Cart getitem(int prodId, int userId) {
-		String hql = "from"+" Cart"+" where userid="+userId+" and productid="+prodId;
+	public Cart getitem(int prodId, int userid) {
+		String hql = "from"+" Cart"+" where userid="+userid+" and productid="+prodId;
 		@SuppressWarnings("rawtypes")
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
@@ -68,20 +68,20 @@ public class CartDAOImpl implements CartDAO
 
 	@SuppressWarnings("deprecation")
 	@Transactional
-	public long cartsize(int userId) {
+	public long cartsize(int userid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
-		c.add(Restrictions.eq("userId", userId));
+		c.add(Restrictions.eq("userid", userid));
 		c.add(Restrictions.eq("status","C"));
-		c.setProjection(Projections.count("userId"));
+		c.setProjection(Projections.count("userid"));
 		long count= (Long) c.uniqueResult();
 		return count;
 	}
 	
 	@SuppressWarnings("deprecation")
 	@Transactional
-	public double CartPrice(int userId) {
+	public double CartPrice(int userid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
-		c.add(Restrictions.eq("userId", userId));
+		c.add(Restrictions.eq("userid", userid));
 		c.add(Restrictions.eq("status","C"));
 		c.setProjection(Projections.sum("subTotal"));
 		double l=  (Double) c.uniqueResult();
@@ -110,6 +110,12 @@ public class CartDAOImpl implements CartDAO
 		}
 		
 		return null;
+	}
+
+@Transactional
+	public List<Cart> getCart(int userid) {
+		List<Cart> clist= sessionFactory.getCurrentSession().createQuery("from Cart where userId="+userid).list();
+		return clist;
 	}
 
 }

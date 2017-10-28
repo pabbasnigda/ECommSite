@@ -19,8 +19,8 @@ public class Order {
 	
 	@Id
 	@Column(name="Orderid")
-	/*@GeneratedValue*/
-	private String orderId;
+	@GeneratedValue
+	private int orderId;
 	
 	private int userid;
 	private String productname;
@@ -37,10 +37,10 @@ public class Order {
 		this.productid = productid;
 	}
 	
-	public String getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(String orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 	public int getUserid() {
@@ -80,3 +80,4 @@ public class Order {
 		this.subTotal = subTotal;
 	}	
 }
+
