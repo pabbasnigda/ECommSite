@@ -3,7 +3,7 @@ package com.frontend.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -18,6 +18,7 @@ import com.niit.dao.CheckOutDAO;
 import com.niit.dao.OrderDAO;
 import com.niit.dao.UserDAO;
 import com.niit.model.Card;
+import com.niit.model.User;
 
 
 
@@ -39,10 +40,10 @@ public class CheckOutController
 	@Autowired
 	CardDAO cardDAO;
 	
-	@RequestMapping("checkout")
+	@RequestMapping(value = "checkout")
 	public String CheckoutPage(@ModelAttribute("card")Card card,Model model)
 	{
-		//model.addAttribute("total", checkOutDAO.getTotal(userid));
+	//	model.addAttribute("total", checkOutDAO.getTotal(userid));
 		return "CheckOut";	
 	}
 
@@ -64,16 +65,21 @@ public class CheckOutController
 		model.addAttribute("cod", charges);
 		cartDAO.removeCartById(userId);
 		return "Invoice";
-	
-	
 	}
 	
-	/*
+	
 	@RequestMapping(value="/CodInvoice",method=RequestMethod.POST)
 	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
 	{
 		int charges=99;	
-		int userId = (Integer) session.getAttribute("userid");
+		
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		User user = userDAO.get(email);
+		
+		int userId=user.getId();
+		
+		//int userId = (Integer) session.getAttribute("userid");
 		cartDAO.getCartById(userId);
 		orderDAO.OrderDetails();
 	
@@ -85,7 +91,6 @@ public class CheckOutController
 		cartDAO.removeCartById(userId);
 		return "Invoice";
 	
-	
 	}
-*/
+
 }

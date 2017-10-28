@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" session="true"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -128,9 +128,9 @@
                         
                         </td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <a href="checkout" class="btn btn-success">
+                             <span class="glyphicon glyphicon-play"></span> Checkout
+                        </a></td>
                     </tr>
                 </tbody>
             </table>

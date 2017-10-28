@@ -3,4 +3,5 @@ com\frontend\controller\ProductController.class
 com\frontend\controller\CartController.class
 com\frontend\controller\SupplierController.class
 com\frontend\controller\HomeController.class
+com\frontend\controller\CheckOutController.class
 com\frontend\controller\ImageController.class

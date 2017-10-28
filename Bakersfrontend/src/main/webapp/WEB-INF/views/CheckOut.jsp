@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"  session="true"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -18,6 +18,32 @@
   
 </head>
 <body>
+<div class="bs-example">
+    <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">CHOCOHUB</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PROFILE</a></li>
+                    
+                </ul>
+               
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</div>
+
 
 <div class="container">
    <div class="col-xs-offset-2 col-xs-12">
@@ -56,10 +82,7 @@
                                         </div>
                                     </div>
                                 </div>
-                              <%--   <div class="alert alert-danger alert-dismissable fade in">
-                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                 <strong><form:errors path="card_number"></form:errors></strong>
-                                 </div> --%>
+                              
                                 <div class="row">
                                     <div class="col-xs-9">
                                         <div class="form-group">
@@ -68,7 +91,7 @@
                                         --> <div class="row">
                                         <div class="col-xs-5">
                                          
-              <select class="form-control col-sm-2" name="expiry-month" placeholder="Month" id="expiry-month">
+              <select class="form-control col-sm-6" name="expiry-month" placeholder="Month" id="expiry-month">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -84,7 +107,7 @@
                 <option value="12">Dec (12)</option>
               </select>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-5">
               <select class="form-control" name="expiry-year" placeholder="year">
                 <option>year</option>
                 <option value="18">2018</option>
@@ -105,7 +128,7 @@
                                     </div>
                                     <div class="col-xs-3 pull-right">
                                           <div class="form-group">
-                                            <label class="control-label" for="cardCVC">CVV code</label>
+                                            <label class="control-label" for="cardCVC">CVV</label>
                                             <input class="form-control" type="tel" required="" placeholder="CVV" id="cardCVC">
                                         </div>
                                     </div>
@@ -152,12 +175,10 @@
         </div>
     </div>
    
- </form:form>
+ </form:form>	
     </div>
+    <br><br>
+<jsp:include page="footer.jsp" /> 
     
-    <div 
-</div>
-  
 </body>
-
 </html>
