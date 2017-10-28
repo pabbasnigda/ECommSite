@@ -73,18 +73,18 @@
                         <div class="thumbnail">
                          <a class="thumbnail pull-left" href="#"> <img src="/Bakersfrontend/myImage/imageDisplay?id=${cart.productid}" style="height:50px;height: 50px" > </a> -->
                             <div class="media-body">
-                                <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
+                                <h4 class="media-heading"><a href="#">${cart.productname}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
                                 <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                         <form action="editCart/${cart.id}">
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="quantity" value="${cart.productQuantity }" >
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="quantity" value="${cart.quantity }" >
                         
                         </form>
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cart.productPrice}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cart.productprice}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cart.subTotal}</strong></td>
                         <td class="col-sm-1 col-md-1">
                         <a href="removeCart/${cart.id }" type="button" class="btn btn-danger">

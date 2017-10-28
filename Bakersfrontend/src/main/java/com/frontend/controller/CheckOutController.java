@@ -52,18 +52,18 @@ public class CheckOutController
 	public String InvoicePage(@ModelAttribute ("card") Card card, HttpSession session, Model model)
 	{
 		int charges=99;
-		int userId = (Integer) session.getAttribute("userid");
-		cartDAO.getCartById(userId);
-		card.setCard_userid(userId);
+		int userid = (Integer) session.getAttribute("userid");
+		cartDAO.getCartById(userid);
+		card.setCard_userid(userid);
 		cardDAO.saveCard(card);
 		orderDAO.OrderDetails();
 		
 	   	
-		model.addAttribute("user", userDAO.getUserById(userId));
-    	model.addAttribute("cd", cartDAO.getCartById(userId));
-    	model.addAttribute("total",checkOutDAO.getTotal(userId));
+		model.addAttribute("user", userDAO.getUserById(userid));
+    	model.addAttribute("cd", cartDAO.getCartById(userid));
+    	model.addAttribute("total",checkOutDAO.getTotal(userid));
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userId);
+		cartDAO.removeCartById(userid);
 		return "Invoice";
 	}
 	
@@ -77,18 +77,18 @@ public class CheckOutController
 		
 		User user = userDAO.get(email);
 		
-		int userId=user.getId();
+		//int userid=user.getId();
 		
-		//int userId = (Integer) session.getAttribute("userid");
-		cartDAO.getCartById(userId);
+		int userid = (Integer) session.getAttribute("userid");
+		cartDAO.getCartById(userid);
 		orderDAO.OrderDetails();
 	
-		model.addAttribute("user", userDAO.getUserById(userId));
-    	model.addAttribute("cd", cartDAO.getCartById(userId));
-    	model.addAttribute("total",checkOutDAO.getTotal(userId));
+		model.addAttribute("user", userDAO.getUserById(userid));
+    	model.addAttribute("cd", cartDAO.getCartById(userid));
+    	model.addAttribute("total",checkOutDAO.getTotal(userid));
    
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userId);
+		cartDAO.removeCartById(userid);
 		return "Invoice";
 	
 	}
