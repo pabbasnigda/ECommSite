@@ -10,19 +10,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Index Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 
 	.bs-example{
     	margin: 20px;
-    }
+   		}
+	
+    
 </style>
 <%-- <jsp:include page="showProduct.jsp" />  --%>
-
 </head>
-<body>
+  
 ${ExistingMessage}
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
@@ -43,12 +43,7 @@ ${ExistingMessage}
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">HOME</a></li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">PROFILE<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">show profile</a></li>
-                    	</ul></li>
+                    
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -77,9 +72,15 @@ ${ExistingMessage}
     </nav>
 </div>
 <!-- =================================-->
+ 
 
-<div class="container">
-		
+
+<center>
+<div class="jumbotron">
+<h2><font color="#006699">!!!!Welcome to world of CHOCOHUB!!!!</font></h2>
+</div></center>
+
+<div class="container">		
 			<div class="row">
 		
 		<c:forEach items="${ProductList}" var="product">
@@ -93,7 +94,7 @@ ${ExistingMessage}
 										<!--  <img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"-->		
 										<!-- <div>				</div>-->
 			</div>
-				<div class="img">
+				<div class="row">
 					<div class="desc">
 						<p>
 						<div class="form-group">
@@ -120,8 +121,32 @@ ${ExistingMessage}
 					</div>
 				</div></c:forEach>
 			</div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<div class="container">
+        <div id="map" style="width:100%;height:300px"></div>
+        </div>
+        <script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(17.4836979,78.3158338);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 5};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+  // Zoom to 9 when clicking on marker
+  google.maps.event.addListener(marker,'click',function() {
+    map.setZoom(9);
+    map.setCenter(marker.getPosition());
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALCNrf2vvP9ECAFAWh0I4OQIhnLLFTKoE&callback=myMap"></script>
+		
+		
 		
 	</div><br/><br/><br/><br/>
 	<jsp:include page="footer.jsp"></jsp:include> 
+</div>
 </body>
 </html> 

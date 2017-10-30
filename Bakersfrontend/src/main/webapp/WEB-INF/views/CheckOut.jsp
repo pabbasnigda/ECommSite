@@ -1,49 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"  session="true"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CheckOut Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+    
 </head>
-<body>
-<div class="bs-example">
-    <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">CHOCOHUB</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">PROFILE</a></li>
-                    
-                </ul>
-               
-            </div><!-- /.navbar-collapse -->
-        </div>
-    </nav>
-</div>
 
+<body>
+
+
+<br>
+<br>
 
 <div class="container">
    <div class="col-xs-offset-2 col-xs-12">
@@ -82,7 +65,10 @@
                                         </div>
                                     </div>
                                 </div>
-                              
+                              <%--   <div class="alert alert-danger alert-dismissable fade in">
+                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                 <strong><form:errors path="card_number"></form:errors></strong>
+                                 </div> --%>
                                 <div class="row">
                                     <div class="col-xs-9">
                                         <div class="form-group">
@@ -91,7 +77,7 @@
                                         --> <div class="row">
                                         <div class="col-xs-5">
                                          
-              <select class="form-control col-sm-6" name="expiry-month" placeholder="Month" id="expiry-month">
+              <select class="form-control col-sm-2" name="expiry-month" placeholder="Month" id="expiry-month">
                 <option>Month</option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -107,7 +93,7 @@
                 <option value="12">Dec (12)</option>
               </select>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-4">
               <select class="form-control" name="expiry-year" placeholder="year">
                 <option>year</option>
                 <option value="18">2018</option>
@@ -128,7 +114,7 @@
                                     </div>
                                     <div class="col-xs-3 pull-right">
                                           <div class="form-group">
-                                            <label class="control-label" for="cardCVC">CVV</label>
+                                            <label class="control-label" for="cardCVC">CVV code</label>
                                             <input class="form-control" type="tel" required="" placeholder="CVV" id="cardCVC">
                                         </div>
                                     </div>
@@ -156,7 +142,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">�</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Cash On Delivery</h4></div>
                 <div class="modal-body">
                     <p>A delivery Charge of <Strong>Rs.99/-</Strong> is applicable for Cash on Delivery for orders below Rs.200/-</p>
@@ -175,10 +161,16 @@
         </div>
     </div>
    
- </form:form>	
+ </form:form>
     </div>
-    <br><br>
-<jsp:include page="footer.jsp" /> 
     
+    <div 
+   <c:import url="/WEB-INF/views/footer.jsp" />>
+</div>
+    
+    
+    <script src="<c:url value= "/resources/assets/js/jquery.min.js"/>"></script>
+    <script src="<c:url value= "/resources/assets/bootstrap/js/bootstrap.min.js"/>"></script>
 </body>
+
 </html>

@@ -71,26 +71,24 @@ public class CheckOutController
 	@RequestMapping(value="/CodInvoice",method=RequestMethod.POST)
 	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
 	{
-		int charges=99;	
 		
-		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		
-		User user = userDAO.get(email);
-		
-		//int userid=user.getId();
-		
-		int userid = (Integer) session.getAttribute("userid");
-		cartDAO.getCartById(userid);
-		orderDAO.OrderDetails();
+		int charges=99;
+		int userId = (Integer) session.getAttribute("userid");
+		cartDAO.getCartByStatus(userId);
+		//mailService.sendEmail(userId);
 	
-		model.addAttribute("user", userDAO.getUserById(userid));
-    	model.addAttribute("cd", cartDAO.getCartById(userid));
-    	model.addAttribute("total",checkOutDAO.getTotal(userid));
+		orderDAO.OrderDetails();
+		
+		
+		
+		model.addAttribute("user", userDAO.getUserById(userId));
+    	model.addAttribute("cd", cartDAO.getCartById(userId));
+    	/*cart.setGrandTotal(checkOutDAO.getTotal(userId)+"99");
+    	*/model.addAttribute("total",checkOutDAO.getTotal(userId));
    
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userid);
+		cartDAO.removeCartById(userId);
 		return "Invoice";
-	
 	}
 
 }

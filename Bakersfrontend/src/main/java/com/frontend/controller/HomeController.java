@@ -119,7 +119,7 @@ public class HomeController
 			public String UserRegister(@ModelAttribute("user") User user,RedirectAttributes attributes) {
 				user.setEnabled(true);
 				user.setRole("ROLE_USER");
-				userDAO.saveOrUpdate(user);
+				userDAO.saveUser(user);
 				attributes.addFlashAttribute("SuccessMessage","Registration Successfull");
 				return "redirect:/";
 			}
