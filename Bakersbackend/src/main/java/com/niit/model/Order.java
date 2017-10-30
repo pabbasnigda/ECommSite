@@ -1,12 +1,7 @@
 package com.niit.model;
 
-import java.util.HashSet;
-
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,8 +14,8 @@ public class Order {
 	
 	@Id
 	@Column(name="Orderid")
-	@GeneratedValue
-	private int orderId;
+	/*@GeneratedValue*/
+	private String orderId;
 	
 	private int userid;
 	private String productname;
@@ -37,10 +32,10 @@ public class Order {
 		this.productid = productid;
 	}
 	
-	public int getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(int orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 	public int getUserid() {
@@ -78,6 +73,9 @@ public class Order {
 	}
 	public void setSubTotal(double subTotal) {
 		this.subTotal = subTotal;
-	}	
+	}
+	
+	
 }
 
+	

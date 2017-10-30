@@ -57,13 +57,9 @@ public class CartDAOImpl implements CartDAO
 	}
 
 	@Transactional
-	public boolean removeCartById(int cart_id) {
-		 Object persistentInstance =sessionFactory.getCurrentSession().load(Cart.class, cart_id);
-		    if (persistentInstance != null) {
-		    	sessionFactory.getCurrentSession().delete(persistentInstance);
-		        return true;
-		    }
-		    return false;
+	public void removeCartById(int userid) {
+		Query query = sessionFactory.getCurrentSession().createQuery("delete Cart where userid="+userid);
+		query.executeUpdate();
 	}
 
 	@SuppressWarnings("deprecation")
@@ -117,5 +113,14 @@ public class CartDAOImpl implements CartDAO
 		List<Cart> clist= sessionFactory.getCurrentSession().createQuery("from Cart where userId="+userid).list();
 		return clist;
 	}
+
+@Transactional
+public void getCartByStatus(int userid) 
+{
+	String hql="update Cart set status='P' where userid="+userid;	
+	@SuppressWarnings("rawtypes")
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	query.executeUpdate();
+}
 
 }

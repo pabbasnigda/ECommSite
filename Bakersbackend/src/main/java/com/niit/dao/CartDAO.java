@@ -11,7 +11,7 @@ public boolean saveProductToCart(Cart cart);
 	public Cart getitem(int prodId,int userid);
 	
 	public List<Cart>listCart();
-	public boolean removeCartById(int cart_id);
+	public void removeCartById(int userid);
 	
 	public long cartsize(int userid) ;
 	
@@ -20,4 +20,5 @@ public boolean saveProductToCart(Cart cart);
 	public Cart editCartById(int cart_id);
 	public Cart getCartById(int cart_id);
 	public List<Cart>getCart(int userid);
+	public void getCartByStatus(int userid);
 }

@@ -31,12 +31,12 @@ public class OrderDAOImpl implements OrderDAO
 	{
 		
 		@SuppressWarnings("rawtypes")
-		Query query =sessionFactory.getCurrentSession().createQuery("insert into Order(orderId , productid , productname ,productprice ,quantity ,status ,subTotal ,userid )" + "select orderId ,productid ,productname ,productprice ,quantity ,status ,subTotal ,userid from Cart");
-		 int result=query.executeUpdate();
-		
+		Query query =sessionFactory.getCurrentSession().createQuery("insert into Order (orderId , productid , productname ,productprice ,quantity ,status ,subTotal ,userid )"+"select orderId ,productid ,productname ,productprice ,quantity ,status ,subTotal ,userid from Cart");
+		 query.executeUpdate();
 		return true;
-		
+		 
 	}
+		
 	
 	@Transactional
 	public List<Order> getAllOrderDetails() {

@@ -1,6 +1,8 @@
 package com.niit.model;
 
 import javax.persistence.Column;
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,14 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="Card_Details")
-public class Card 
-{
+public class Card {
 	@Id
 	@Column(name="Cardid")
 	@GeneratedValue
 	private int payid;
-	private String card_name;	
+
+	private String card_name;
+	
 	private long card_number;
+
 	private int card_userid;
 	
 	public int getCard_userid() {
