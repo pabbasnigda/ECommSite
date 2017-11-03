@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" session="true"%>
    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
@@ -10,80 +10,65 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Invoice</title>
- <link rel="stylesheet" href="<c:url value="/resources/assets/bootstrap/css/bootstrap.min.css"/>">
- <link rel="stylesheet" href="<c:url value="/resources/assets/css/styles.css"/>">
- <link rel="stylesheet" href="<c:url value="resources/assets/css/Google-Style-Login.css"/>">
- <link rel="stylesheet" href="<c:url value="resources/assets/css/Pretty-Footer.css"/>">
- <link rel="stylesheet" href="<c:url value="resources/assets/css/Pretty-Registration-Form.css"/>">
-    
+<link rel="stylesheet" href="resources/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="bs-example">
+    <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand navbar-link" href="#"><img src="resources/assets/img/90a3d103aa1d8fc2bff6448dcd2edc53.svg" width="70px" id="logo"> N Bakes &amp; Cakes</a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                
+                <a class="navbar-brand" href="#">CHOCOHUB</a>
+          		
             </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" data-hover="dropdown">Menu<i class="glyphicon glyphicon-align-justify"></i> <span class="caret hidden"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                        <c:forEach items="${categoryList}" var="category">
-                            <li role="presentation"><a href="product${category.id}">${category.categoryName}</a></li>
-                            </c:forEach>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Inbox</a></li>
+                            <li><a href="#">Drafts</a></li>
+                            <li><a href="#">Sent Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Trash</a></li>
                         </ul>
                     </li>
-
- 			 <sec:authorize access="!isAuthenticated()">                
- 	    			<li role="presentation"><a href="login">Login <i class="glyphicon glyphicon-log-in"></i></a></li>
-                    <li role="presentation"><a href="signup">SignUp <i class="glyphicon glyphicon-user"></i></a></li>
-             </sec:authorize>
-            
-             <sec:authorize access="isAuthenticated()">
-            		  <!-- <li class="active" role="presentation"><a href="cart">Shop<i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-                       --><li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
-             </sec:authorize>
-
                 </ul>
-            </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="viewcart">CART</a></li>
+               </ul> 
+                <ul class="nav navbar-nav navbar-right">
+                       
+                              <li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
+                    	</ul>
+                    	
+                </ul> 
+            </div><!-- /.navbar-collapse -->
         </div>
     </nav>
+</div>
+
 
 <br>
 <br>
 <br>
 <br>
 <div id= "printableArea">
- <form:form modelAttribute="user" commandName="user">
-<div class="container">
-        <div class="well">
-       
-            <div class="row">
-            
-                <div class="col-md-4">
-                    <label>Name:${user.name} </label>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label>email:${user.email} </label>
-                </div>
-            </div>
-            <div class="row">
-    	            <div class="col-md-4">
-                    <label>contact no:${user.contact_number} </label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label>Shipping Address:${user.address} </label>
-                </div>
-            </div>
-            <hr>
-        </div>
-    </div>
-    </form:form>
+ 
      <div class="container">
         <div class="well">     
 
@@ -96,7 +81,7 @@
 	<th>Product name</th>
 	<th>product price</th>
 	<th>Quantity</th>
-	<th>SubTotal</th>
+	
 
 	
 	
@@ -105,11 +90,11 @@
 <tbody>	
 <c:forEach items="${cd}" var="cd">
 		<tr>
-		<td><img src="/eComm/myImage/imageDisplay?id=${cd.productid}" alt="" width="200" height="200" /></td>
-			<td>${cd.productname}</td>
-			<td>${cd.productprice}</td>
+		<td><img src="/Bakersfrontend/myImage/imageDisplay?id=${cd.productid}" alt="" width="200" height="200" /></td>
+			<td>${cd.name}</td>
+			<td>${cd.price}</td>
 			<td>${cd.quantity}</td>
-			<td>${cd.subTotal}</td>	
+			
 			
 		</tr>
 </c:forEach>	
@@ -126,21 +111,19 @@
 </div>
 </div>
 <div class="row">
-<div class="col-md-offset-2 col-md-2">
-<button class="btn btn-info" onclick="printDiv('printableArea')"><span class="glyphicon glyphicon-print"></span>Print Invoice</button>
-</div>
+		<div class="col-md-offset-2 col-md-2">
+			<button class="btn btn-info" onclick="printDiv('printableArea')">
+				<span class="glyphicon glyphicon-print"></span>Print Invoice</button>
+		</div>
 		<div class="col-md-4">
-       <a href="index" class="btn btn-danger" role="button">Continue Shopping</a>
+       <a href="continueshopping" class="btn btn-danger">
+        	<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping</a>
      	</div>
  </div>
  
- <div 
-   <c:import url="/WEB-INF/views/footer.jsp" />>
-</div>
  
- 	<script src="<c:url value="/resources/assets/js/print.js"/>"></script>
-    <script src="<c:url value="/resources/assets/js/jquery.min.js"/>"></script>
-    <script src="<c:url value="/resources/assets/bootstrap/js/bootstrap.min.js"/>"></script>
+   </div><br/><br/><br/><br/>
+	<jsp:include page="footer.jsp"></jsp:include> 
 
 </body>
 </html>

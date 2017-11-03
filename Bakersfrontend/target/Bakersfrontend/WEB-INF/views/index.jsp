@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Index Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
@@ -17,12 +18,17 @@
 	.bs-example{
     	margin: 20px;
    		}
-	
-    
+	.background{
+		background-repeat: no-repeat;
+		height: 315px;
+		width: 1300px;
+	}
 </style>
+
 <%-- <jsp:include page="showProduct.jsp" />  --%>
 </head>
-  
+
+<body background="${pageContext.request.contextPath}/resources/pics/heart.jpg" >
 ${ExistingMessage}
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
@@ -76,29 +82,30 @@ ${ExistingMessage}
 
 
 <center>
-<div class="jumbotron">
-<h2><font color="#006699">!!!!Welcome to world of CHOCOHUB!!!!</font></h2>
-</div></center>
 
-<div class="container">		
-			<div class="row">
-		
+<h2><font color="Tomato">!!!!Welcome to world of CHOCOHUB!!!!</font></h2>
+</center>
+
+<div class="container">
 		<c:forEach items="${ProductList}" var="product">
 			<h2 style="color: blue">
 				<c:out value="${product.name }" />
 			</h2>
 
-		
+
+			<div class="row">
 				<img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"class="rounded float-left"
 							class="img-responsive" style="width: 200px; height:120px">
 										<!--  <img src="/Bakersfrontend/myImage/imageDisplay?id=${product.id}"-->		
 										<!-- <div>				</div>-->
 			</div>
-				<div class="row">
+
+			<div class="row">
+				<div class="img">
 					<div class="desc">
 						<p>
 						<div class="form-group">
-							<input type="text"  style="width: 400px;" class="form-control" value="${product.name}"
+							<input type="text" style="width: 400px;" class="form-control" value="${product.name}"
 								readonly="readonly">
 						</div>
 
@@ -107,7 +114,7 @@ ${ExistingMessage}
 								value="Rs. ${product.price}" readonly="readonly">
 						</div>
 						<div class="form-group">
-							<input type="text"style="width: 400px;" class="form-control"
+							<input type="text" style="width: 400px;" class="form-control"
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
@@ -119,8 +126,9 @@ ${ExistingMessage}
 						</div>
 
 					</div>
-				</div></c:forEach>
+				</div>
 			</div>
+		</c:forEach>
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 		<div class="container">
         <div id="map" style="width:100%;height:300px"></div>
@@ -144,9 +152,9 @@ function myMap() {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALCNrf2vvP9ECAFAWh0I4OQIhnLLFTKoE&callback=myMap"></script>
 		
 		
-		
+</div>		
 	</div><br/><br/><br/><br/>
 	<jsp:include page="footer.jsp"></jsp:include> 
-</div>
+
 </body>
 </html> 

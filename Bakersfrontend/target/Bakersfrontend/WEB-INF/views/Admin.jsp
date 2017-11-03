@@ -10,16 +10,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 	.bs-example{
     	margin: 20px;
     }
+    .background{
+    	width: 1300px;
+    	background-repeat: no-repeat center center fixed;
+    }
 </style>
 </head>
 
-<body>
+<body background="${pageContext.request.contextPath}/resources/pics/login.jpg" >
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -57,11 +62,20 @@
     </nav>
 </div>
 <center> 
-<div class="jumbotron">
-     <h1>Hey!Admin</h1>
-  <h2>Welcome to CHOCOHUB</h2>      
-  <p>One Destination for all your Celebrations</p>
+
+     <h1><font color="Tomato">Hey!Admin</font></h1>
+  <h2><font color="Tomato">Welcome to CHOCOHUB</font></h2>      
+  <p><font color="Tomato">One Destination for all your Celebrations</font></p>
 </center>
-</div>
+
+
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+
+	<jsp:include page="footer.jsp"></jsp:include> 
+
 </body>
 </html> 

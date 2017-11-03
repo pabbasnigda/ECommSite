@@ -22,7 +22,7 @@
 <%-- <jsp:include page="showProduct.jsp" />  --%>
 
 </head>
-<body>
+<body background="${pageContext.request.contextPath}/resources/pics/img.jpg">
 ${ExistingMessage}
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">

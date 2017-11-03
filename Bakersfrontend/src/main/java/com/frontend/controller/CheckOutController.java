@@ -40,6 +40,8 @@ public class CheckOutController
 	@Autowired
 	CardDAO cardDAO;
 	
+	User user;
+	
 	@RequestMapping(value = "checkout")
 	public String CheckoutPage(@ModelAttribute("card")Card card,Model model)
 	{
@@ -69,10 +71,9 @@ public class CheckOutController
 	
 	
 	@RequestMapping(value="/CodInvoice",method=RequestMethod.POST)
-	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
-	{
-		
+	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model){
 		int charges=99;
+		
 		int userId = (Integer) session.getAttribute("userid");
 		cartDAO.getCartByStatus(userId);
 		//mailService.sendEmail(userId);
@@ -89,6 +90,13 @@ public class CheckOutController
 		model.addAttribute("cod", charges);
 		cartDAO.removeCartById(userId);
 		return "Invoice";
-	}
+	
+		}
+	
+		@RequestMapping("continueshopping")
+		public String continueshoping()
+		{
+			return "redirect:/viewcart";
+		}
 
 }
