@@ -54,7 +54,7 @@ public List getAllUser() {
 }
 
 
-	public void removeUserById(int user_id) {
+	public void removeUserById(int userid) {
 		
 		
 	}
@@ -97,7 +97,6 @@ public List getAllUser() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 
 }

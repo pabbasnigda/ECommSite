@@ -9,14 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.model.Order;
 import com.niit.model.Cart;
-
+import com.niit.model.Order;
 
 
 @Repository
-public class OrderDAOImpl implements OrderDAO 
-{	
+public class OrderDAOImpl implements OrderDAO {
+
+	
+	
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -31,12 +33,12 @@ public class OrderDAOImpl implements OrderDAO
 	{
 		
 		@SuppressWarnings("rawtypes")
-		Query query =sessionFactory.getCurrentSession().createQuery("insert into Order (orderId , productid , productname ,productprice ,quantity ,status ,subTotal ,userid )"+"select orderId ,productid ,productname ,productprice ,quantity ,status ,subTotal ,userid from Cart");
+		Query query =sessionFactory.getCurrentSession().createQuery("insert into Order (orderId , productid , productname ,productprice ,quantity ,status ,subTotal ,userid )" + "select orderId ,productid ,productname ,productprice ,quantity ,status ,subTotal ,userid from Cart");
 		 query.executeUpdate();
-		return true;
-		 
-	}
 		
+		return true;
+		
+	}
 	
 	@Transactional
 	public List<Order> getAllOrderDetails() {

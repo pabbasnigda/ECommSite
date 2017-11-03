@@ -1,11 +1,10 @@
 package com.niit.dao;
-
 import java.util.List;
 
 import com.niit.model.Cart;
 
-public interface CartDAO 
-{
+public interface CartDAO {
+
 public boolean saveProductToCart(Cart cart);
 	
 	public Cart getitem(int prodId,int userid);

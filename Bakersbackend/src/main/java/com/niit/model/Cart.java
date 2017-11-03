@@ -1,4 +1,7 @@
 package com.niit.model;
+import java.util.HashSet;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -86,5 +89,3 @@ public class Cart {
 	
 	
 }
-
-	

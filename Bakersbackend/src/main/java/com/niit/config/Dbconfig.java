@@ -21,7 +21,6 @@ import com.niit.dao.CartDAO;
 import com.niit.dao.CartDAOImpl;
 import com.niit.dao.CategoryDAO;
 import com.niit.dao.CategoryDAOImpl;
-
 import com.niit.dao.OrderDAO;
 import com.niit.dao.OrderDAOImpl;
 import com.niit.dao.ProductDAO;
