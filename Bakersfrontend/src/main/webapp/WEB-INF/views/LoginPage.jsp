@@ -30,21 +30,7 @@
                 <a class="navbar-brand" href="#">CHOCOHUB</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">HOME</a></li>
-                   
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Inbox</a></li>
-                            <li><a href="#">Drafts</a></li>
-                            <li><a href="#">Sent Items</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Trash</a></li>
-                        </ul>
-                    </li>
-                </ul>
+           
                
             </div><!-- /.navbar-collapse -->
         </div>
@@ -92,13 +78,7 @@
 		</div>
 	</div>
 	
-	<div class="form-group">
-	<label for="code" class="col-xs-4 control-label"></label>
-		<div class="col-xs-4">
-		<div class="text-left">
-			<a href="#" class="forgot-password">Forgot your password?</a>
-		</div>
-	</div>
+	
 	
 	
 	

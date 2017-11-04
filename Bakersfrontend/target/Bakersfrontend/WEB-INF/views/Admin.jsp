@@ -17,14 +17,11 @@
 	.bs-example{
     	margin: 20px;
     }
-    .background{
-    	width: 1300px;
-    	background-repeat: no-repeat center center fixed;
-    }
+    
 </style>
 </head>
 
-<body background="${pageContext.request.contextPath}/resources/pics/login.jpg" >
+<body>
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->

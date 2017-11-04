@@ -35,19 +35,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">MESSAGES<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Inbox</a></li>
-                            <li><a href="#">Drafts</a></li>
-                            <li><a href="#">Sent Items</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Trash</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                
                 <ul class="nav navbar-nav">
                     <li><a href="viewcart">CART</a></li>
                </ul> 
@@ -88,11 +76,11 @@
 </tr>
 </thead>	
 <tbody>	
-<c:forEach items="${cd}" var="cd">
+<c:forEach items="${orderdetails}" var="cd">
 		<tr>
 		<td><img src="/Bakersfrontend/myImage/imageDisplay?id=${cd.productid}" alt="" width="200" height="200" /></td>
-			<td>${cd.name}</td>
-			<td>${cd.price}</td>
+			<td>${cd.productname}</td>
+			<td>${cd.productprice}</td>
 			<td>${cd.quantity}</td>
 			
 			

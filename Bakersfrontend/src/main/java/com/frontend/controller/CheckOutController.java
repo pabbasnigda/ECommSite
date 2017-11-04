@@ -64,6 +64,7 @@ public class CheckOutController
 		model.addAttribute("user", userDAO.getUserById(userid));
     	model.addAttribute("cd", cartDAO.getCartById(userid));
     	model.addAttribute("total",checkOutDAO.getTotal(userid));
+    	model.addAttribute("orderdetails", orderDAO.getOrderDetailsByUser(userid));
 		model.addAttribute("cod", charges);
 		cartDAO.removeCartById(userid);
 		return "Invoice";
@@ -86,7 +87,7 @@ public class CheckOutController
     	model.addAttribute("cd", cartDAO.getCartById(userId));
     	/*cart.setGrandTotal(checkOutDAO.getTotal(userId)+"99");
     	*/model.addAttribute("total",checkOutDAO.getTotal(userId));
-   
+    	model.addAttribute("orderdetails", orderDAO.getOrderDetailsByUser(userId));
 		model.addAttribute("cod", charges);
 		cartDAO.removeCartById(userId);
 		return "Invoice";
